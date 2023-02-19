@@ -24,6 +24,7 @@ class Sprite(pygame.sprite.Sprite):
 pygame.init()
 
 RED = (255, 0, 0)
+BLUE = (0,0,255)
 
 size = (WIDTH, HEIGHT)
 screen = pygame.display.set_mode(size)
@@ -31,11 +32,15 @@ pygame.display.set_caption("Creating lemon soda sprite")
 
 all_sprites_list = pygame.sprite.Group()
 
-object_ = Sprite(RED, 20, 30)
+object_ = Sprite(BLUE, 20, 30)
 object_.rect.x = 200
 object_.rect.y = 1
 
-all_sprites_list.add(object_)
+evil = Sprite(RED, 20, 30)
+evil.rect.x = 200
+evil.rect.y = 1
+
+all_sprites_list.add(object_,evil)
 
 exit = True
 clock = pygame.time.Clock()
@@ -64,6 +69,18 @@ while exit:
 
 	if pygame.key.get_pressed()[K_d]:
 		object_.rect.x += 5
+
+	if pygame.key.get_pressed()[K_UP]:
+		evil.rect.y -= 5
+
+	if pygame.key.get_pressed()[K_DOWN]:
+		evil.rect.y += 5
+
+	if pygame.key.get_pressed()[K_LEFT]:
+		evil.rect.x -= 5
+
+	if pygame.key.get_pressed()[K_RIGHT]:
+		evil.rect.x += 5
 
 
 
