@@ -1,11 +1,11 @@
 import pygame
 import random
-
+from pygame.locals import *
 # GLOBAL VARIABLES
 COLOR = (255, 100, 98)
 SURFACE_COLOR = (167, 255, 100)
-WIDTH = 1900
-HEIGHT = 999
+WIDTH = 1000
+HEIGHT = 500
 
 # Object class
 class Sprite(pygame.sprite.Sprite):
@@ -42,13 +42,30 @@ clock = pygame.time.Clock()
 
 while exit:
 	for event in pygame.event.get():
-		if event.type == pygame.KEYDOWN:
-			if event.key == pygame.K_w:
-				object_.rect.y -= 10
-			if event.key == pygame.K_s:
-				object_.rect.y += 10
+		# if event.type == pygame.KEYDOWN:
+		# 	if event.key == pygame.K_w:
+		# 		object_.rect.y -= 10
+		# 	if event.key == pygame.K_s:
+		# 		object_.rect.y += 10
+		# 	if event.key == pygame.K_a:
+		# 		object_.rect.x += -10
+		# 	if event.key == pygame.K_d:
+		# 		object_.rect.x += 10
 		if event.type == pygame.QUIT:
 			exit = False
+	if pygame.key.get_pressed()[K_w]:
+		object_.rect.y -= 5
+
+	if pygame.key.get_pressed()[K_s]:
+		object_.rect.y += 5
+
+	if pygame.key.get_pressed()[K_a]:
+		object_.rect.x -= 5
+
+	if pygame.key.get_pressed()[K_d]:
+		object_.rect.x += 5
+
+
 
 	all_sprites_list.update()
 	screen.fill(SURFACE_COLOR)
