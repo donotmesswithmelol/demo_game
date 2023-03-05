@@ -31,7 +31,7 @@ BLUE = (0, 0, 255)
 size = (WIDTH, HEIGHT)
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Creating lemon soda sprite")
-
+imp = pygame.image.load("C:\\Users\\saran_fecfs6i\\PycharmProjects\\website\\OBAMAMAMAM.jpg").convert()
 all_sprites_list = pygame.sprite.Group()
 
 object_ = Sprite(BLUE, 20, 30)
@@ -87,7 +87,8 @@ while exit:
     # this is now the next part for tfy
     if abs(object_.rect.x - evil.rect.x) < 20 and abs(object_.rect.y - evil.rect.y) < 20:
         print("YOUR DONE GAME OVERRRRRRRRRRRRRRRRRRRRRRRRR")
-        raise Exception ("You failed you fat loser go eat some taco bell")
+        screen.blit(imp, (200, 200))
+
     # print((object_.rect.x))
     # print((evil.rect.x))
 
