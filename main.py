@@ -4,6 +4,7 @@
 import pygame
 import time
 import random
+
 from pygame.locals import *
 
 # GLOBAL VARIABLES
@@ -114,6 +115,12 @@ while exit:
     if abs(object_.rect.x - evil.rect.x) < 20 and abs(object_.rect.y - evil.rect.y) < 20:
         print("YOUR DONE GAME OVERRRRRRRRRRRRRRRRRRRRRRRRR")
         screen.blit(imp, (500, 200))
+        all_sprites_list.draw(screen)
+        pygame.display.flip()
+        clock.tick(60)
+        image_time = 0
+        time.sleep(3)  # Sleep for 3 seconds
+        exit(1)
     all_sprites_list.draw(screen)
     pygame.display.flip()
     clock.tick(60)
