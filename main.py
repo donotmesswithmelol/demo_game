@@ -72,6 +72,12 @@ while exit:
     screen.fill(SURFACE_COLOR)
     screen.blit(text, textRect)
     totaltime = round((time.time() - starttime), 2)
+    timeRemaining=round(60 - totaltime)
+    timer = font.render(str(timeRemaining), RED, BLUE)
+    timerRect =timer.get_rect()
+    timerRect.center = (950, 40)
+    screen.blit(timer, timerRect)
+    print(timeRemaining)
     if totaltime > 60:
         print("You lose")
     if pygame.key.get_pressed()[K_w]:
